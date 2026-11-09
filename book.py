@@ -2,7 +2,7 @@ from datetime import datetime
 import math
 
 class Book:
-    def __init__(self, title: str, author: str, year: int, pages: int, words_per_page: int = 300, reading_speed: int = 200):
+    def __init__(self, title: str, author: str, year: int, pages: int, words_per_page: int = 300, reading_speed: int = 200):    # Добавляю атрибуты
         self.title = title
         self.author = author
         
@@ -12,7 +12,7 @@ class Book:
         self.words_per_page = words_per_page
         self.reading_speed = reading_speed
 
-    @property
+    @property       # Добавляю свойства для соблюдения инвариантов
     def year(self):
         return self._year
 
@@ -33,7 +33,7 @@ class Book:
             raise ValueError(f"Количество страниц должно быть целым числом больше 0. Получено: {value}")
         self._pages = value
 
-    def get_total_words(self) -> int:
+    def get_total_words(self) -> int:       # Добавляю методы
         """Вычисляет примерное общее количество слов в книге."""
         return self.pages * self.words_per_page
 
@@ -74,7 +74,7 @@ class Book:
         return (f"Книга: '{self.title}' | Автор: {self.author} | Год: {self.year} | "
                 f"Страниц: {self.pages}")
 
-    if __name__ == "__main__":
+    if __name__ == "__main__":      # Демонстрация кода
     print("--- Создание объектов ---")
     book1 = Book("Война и мир", "Л.Н. Толстой", 1869, 1300, words_per_page=400, reading_speed=150)
     book2 = Book("Маленький принц", "А. де Сент-Экзюпери", 1943, 96, words_per_page=200, reading_speed=250)
