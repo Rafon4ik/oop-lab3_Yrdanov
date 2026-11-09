@@ -73,3 +73,42 @@ class Book:
     def __str__(self):
         return (f"Книга: '{self.title}' | Автор: {self.author} | Год: {self.year} | "
                 f"Страниц: {self.pages}")
+
+    if __name__ == "__main__":
+    print("--- Создание объектов ---")
+    book1 = Book("Война и мир", "Л.Н. Толстой", 1869, 1300, words_per_page=400, reading_speed=150)
+    book2 = Book("Маленький принц", "А. де Сент-Экзюпери", 1943, 96, words_per_page=200, reading_speed=250)
+
+    print(book1)
+    print(book2)
+    print()
+
+    print("--- Расчёт времени чтения (Вычислительная задача) ---")
+    time1 = book1.calculate_reading_time()
+    time2 = book2.calculate_reading_time()
+    
+    print(f"Время чтения '{book1.title}': {time1['hours']} ч. ({time1['minutes']} мин.)")
+    print(f"Время чтения '{book2.title}': {time2['hours']} ч. ({time2['minutes']} мин.)")
+    print()
+
+    print("--- Взаимодействие объектов ---")
+    print(book1.compare_reading_time(book2))
+    print()
+
+    print("--- Изменение состояния ---")
+    book2.add_pages(20)
+    print(f"После добавления 20 страниц во вторую книгу:")
+    print(book2)
+    print(f"Новое время чтения: {book2.calculate_reading_time()['hours']} ч.")
+    print()
+
+    print("--- Проверка инвариантов ---")
+    try:
+        book3 = Book("Неизвестная книга", "Неизвестный автор", 999, 100)
+    except ValueError as e:
+        print(f"Ошибка при создании (год): {e}")
+
+    try:
+        book3 = Book("Неизвестная книга", "Неизвестный автор", 2020, 0)
+    except ValueError as e:
+        print(f"Ошибка при создании (страницы): {e}")
