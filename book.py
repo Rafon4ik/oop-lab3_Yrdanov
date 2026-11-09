@@ -74,6 +74,10 @@ class Book:
         return (f"Книга: '{self.title}' | Автор: {self.author} | Год: {self.year} | "
                 f"Страниц: {self.pages}")
 
+        def get_short_info(self):
+        """Возвращает краткую информацию о книге."""
+        return f"{self.author} — {self.title} ({self.year})"
+
     if __name__ == "__main__":      # Демонстрация кода
     print("--- Создание объектов ---")
     book1 = Book("Война и мир", "Л.Н. Толстой", 1869, 1300, words_per_page=400, reading_speed=150)
