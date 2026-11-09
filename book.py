@@ -70,7 +70,13 @@ class Book:
         else:
             return f"'{self.title}' и '{other_book.title}' читаются за одинаковое время."
 
+    def __str__(self):
+        return (f"Книга: '{self.title}' | Автор: {self.author} | Год: {self.year} | "
+                f"Страниц: {self.pages}")
 
+        def get_short_info(self):
+        """Возвращает краткую информацию о книге."""
+        return f"{self.author} — {self.title} ({self.year})"
 
     if __name__ == "__main__":      # Демонстрация кода
     print("--- Создание объектов ---")
